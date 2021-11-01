@@ -74,7 +74,7 @@
     "HelloLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/serverless-hello-world-dev-hello"
+        "LogGroupName": "/aws/lambda/exercise2-dev-hello"
       }
     },
     "IamRoleLambdaExecution": {
@@ -102,7 +102,7 @@
               "Fn::Join": [
                 "-",
                 [
-                  "serverless-hello-world",
+                  "exercise2",
                   "dev",
                   "lambda"
                 ]
@@ -119,7 +119,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverless-hello-world-dev*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/exercise2-dev*:*"
                     }
                   ]
                 },
@@ -130,7 +130,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverless-hello-world-dev*:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/exercise2-dev*:*:*"
                     }
                   ]
                 }
@@ -143,7 +143,7 @@
           "Fn::Join": [
             "-",
             [
-              "serverless-hello-world",
+              "exercise2",
               "dev",
               {
                 "Ref": "AWS::Region"
@@ -161,11 +161,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-hello-world/dev/1635781112175-2021-11-01T15:38:32.175Z/serverless-hello-world.zip"
+          "S3Key": "serverless/exercise2/dev/1635781945706-2021-11-01T15:52:25.706Z/exercise2.zip"
         },
         "Handler": "handler.helloWorld",
         "Runtime": "nodejs12.x",
-        "FunctionName": "serverless-hello-world-dev-hello",
+        "FunctionName": "exercise2-dev-hello",
         "MemorySize": 1024,
         "Timeout": 6,
         "Role": {
@@ -179,20 +179,20 @@
         "HelloLogGroup"
       ]
     },
-    "HelloLambdaVersionAdSIkgnLwAXfKTJzDWCFiAmpU8VAM3drxJbB7WggN0": {
+    "HelloLambdaVersionxKRnwSX8b8d72PlRGUAvsGKOpJLTBaLEv5l8bFY0rA0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "HelloLambdaFunction"
         },
-        "CodeSha256": "VRkxX03Q61JMJZcJGcGy1XYUGSMa7azmMLKmt+rsuQ0="
+        "CodeSha256": "114U+a0bicU7fpS6T8GQT4qTxTFER5hH0GIJKCSm7SA="
       }
     },
     "ApiGatewayRestApi": {
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
-        "Name": "dev-serverless-hello-world",
+        "Name": "dev-exercise2",
         "EndpointConfiguration": {
           "Types": [
             "EDGE"
@@ -262,7 +262,7 @@
         "HelloLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1635781111136": {
+    "ApiGatewayDeployment1635781944614": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -318,16 +318,16 @@
         "Ref": "ServerlessDeploymentBucket"
       },
       "Export": {
-        "Name": "sls-serverless-hello-world-dev-ServerlessDeploymentBucketName"
+        "Name": "sls-exercise2-dev-ServerlessDeploymentBucketName"
       }
     },
     "HelloLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "HelloLambdaVersionAdSIkgnLwAXfKTJzDWCFiAmpU8VAM3drxJbB7WggN0"
+        "Ref": "HelloLambdaVersionxKRnwSX8b8d72PlRGUAvsGKOpJLTBaLEv5l8bFY0rA0"
       },
       "Export": {
-        "Name": "sls-serverless-hello-world-dev-HelloLambdaFunctionQualifiedArn"
+        "Name": "sls-exercise2-dev-HelloLambdaFunctionQualifiedArn"
       }
     },
     "ServiceEndpoint": {
@@ -353,7 +353,7 @@
         ]
       },
       "Export": {
-        "Name": "sls-serverless-hello-world-dev-ServiceEndpoint"
+        "Name": "sls-exercise2-dev-ServiceEndpoint"
       }
     }
   }

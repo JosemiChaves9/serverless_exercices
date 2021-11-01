@@ -4,7 +4,7 @@ module.exports.helloWorld = async (event) => {
   let message = 'Hello world';
   const name = event.queryStringParameters && event.queryStringParameters.name;
 
-  if (name !== null) {
+  if (name != null) {
     message = `Hello ${name}`;
   }
 
